@@ -4,8 +4,8 @@ project "GLFW"
 	staticruntime "off"
 	warnings "off"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "/%{prj.name}")
 
 	files
 	{
@@ -47,7 +47,6 @@ project "GLFW"
 		defines 
 		{ 
 			"_GLFW_WIN32",
-			"_CRT_SECURE_NO_WARNINGS"
 		}
 
 	filter "configurations:Debug"
