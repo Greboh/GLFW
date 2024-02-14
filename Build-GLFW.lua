@@ -1,11 +1,11 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 	warnings "off"
 
-	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
-	objdir ("bin-int/" .. OutputDir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. OutputDir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. OutputDir .. "/%{prj.name}")
 
 	files
 	{
@@ -47,21 +47,12 @@ project "GLFW"
 		defines 
 		{ 
 			"_GLFW_WIN32",
+			"_CRT_SECURE_NO_WARNINGS"
 		}
 
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
-
-	filter { "system:windows", "configurations:Debug-AS" }	
-		runtime "Debug"
-		symbols "on"
-		sanitize { "Address" }
-		flags { "NoRuntimeChecks", "NoIncrementalLink" }
-
-	filter "configurations:Staging"
-		runtime "Release"
-		optimize "speed"
 
     filter "configurations:Release"
 		runtime "Release"
