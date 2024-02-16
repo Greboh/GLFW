@@ -1,3 +1,11 @@
+#Self defined
+bin/*
+bin-int/*
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+
+
 # The canonical out-of-tree build subdirectory
 build
 build-*
